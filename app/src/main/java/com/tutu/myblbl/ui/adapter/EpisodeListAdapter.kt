@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewOutlineProvider
 import android.view.ViewGroup
+import com.tutu.myblbl.R
 import com.tutu.myblbl.databinding.CellEpisodeBinding
 import com.tutu.myblbl.model.video.VideoModel
 import com.tutu.myblbl.core.ui.base.BaseAdapter
