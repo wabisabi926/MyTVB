@@ -65,7 +65,7 @@ val repositoryModule = module {
     single { com.tutu.myblbl.repository.remote.AuthRepository(get(), get()) }
     single { com.tutu.myblbl.repository.remote.TvAuthRepository(get(named("noCookie"))) }
     single { com.tutu.myblbl.repository.remote.FavoriteRepository(get(), get(), get()) }
-    single { com.tutu.myblbl.repository.remote.HomeLaneRepository(get(), get(), get()) }
+    single { com.tutu.myblbl.repository.remote.HomeLaneRepository(get(), get(), get(), get()) }
     single { com.tutu.myblbl.repository.remote.LiveRepository(get(), get()) }
     single { com.tutu.myblbl.repository.remote.SearchRepository(get(), get()) }
     single { com.tutu.myblbl.repository.remote.SeriesRepository(get(), get(), get()) }
