@@ -6,14 +6,13 @@ import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.core.common.log.HomeVideoCardDebugLogger
 import com.tutu.myblbl.core.ui.image.ImageLoader
 import com.tutu.myblbl.model.video.VideoModel
-import com.tutu.myblbl.repository.VideoRepository
+import com.tutu.myblbl.network.api.BiliApi
 import com.tutu.myblbl.repository.cache.HomeCacheStore
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.withTimeout
 
 class RecommendFeedRepository(
-    private val videoRepository: VideoRepository,
     context: Context
 ) {
 
@@ -108,18 +107,19 @@ class RecommendFeedRepository(
         pageSize: Int,
         freshIdx: Int
     ): NetworkPage {
-        val response = videoRepository.getRecommendList(freshIdx, pageSize)
-        if (!response.isSuccess) {
-            error(response.errorMessage.ifBlank { response.message.ifBlank { "推荐加载失败" } })
-        }
-        val rawItems = response.data?.items.orEmpty()
-        AppLog.i(TAG, "recommend_web(page=$page,freshIdx=$freshIdx) raw=${rawItems.size}")
+        val t0 = SystemClock.elapsedRealtime()
+        val rawItems = BiliApi.recommend(freshIdx, pageSize)
+        val t1 = SystemClock.elapsedRealtime()
+        AppLog.i(TAG, "recommend_web(page=$page,freshIdx=$freshIdx) raw=${rawItems.size} api=${t1 - t0}ms")
         HomeVideoCardDebugLogger.logRejectedCards(
             source = "recommend_web(page=$page,freshIdx=$freshIdx)",
             items = rawItems
         )
+        val filtered = rawItems.filter { it.isSupportedHomeVideoCard }
+        val t2 = SystemClock.elapsedRealtime()
+        AppLog.i(TAG, "recommend_web filter=${t2 - t1}ms api=${t1 - t0}ms raw=${rawItems.size}→${filtered.size}")
         return NetworkPage(
-            items = rawItems.filter { it.isSupportedHomeVideoCard },
+            items = filtered,
             hasMore = rawItems.size >= pageSize
         )
     }
