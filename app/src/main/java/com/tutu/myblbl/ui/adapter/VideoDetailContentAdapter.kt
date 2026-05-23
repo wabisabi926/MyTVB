@@ -19,7 +19,6 @@ import com.tutu.myblbl.core.ui.system.ScreenUtils
 import com.tutu.myblbl.core.common.format.NumberUtils
 import com.tutu.myblbl.core.common.time.TimeUtils
 import com.tutu.myblbl.databinding.CellSeriesLaneBinding
-import com.tutu.myblbl.databinding.CellVideoBinding
 import com.tutu.myblbl.databinding.CellVideoDetailHeadBinding
 import com.tutu.myblbl.model.video.VideoModel
 import com.tutu.myblbl.model.video.detail.Tag
