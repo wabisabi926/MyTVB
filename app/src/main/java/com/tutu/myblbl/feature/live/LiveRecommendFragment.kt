@@ -24,7 +24,6 @@ import com.tutu.myblbl.core.common.ext.toast
 import com.tutu.myblbl.core.common.log.AppLog
 import com.tutu.myblbl.core.common.log.PagePerfLogger
 import com.tutu.myblbl.core.ui.render.FirstScreenRenderer
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
