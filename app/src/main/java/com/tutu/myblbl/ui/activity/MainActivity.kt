@@ -123,6 +123,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), TabBarView.OnTabClickL
             finish()
             return
         }
+        (application as? MyBLBLApplication)?.ensureSessionRuntimeReady("MainActivity.onCreate/sessionState")
         restoredFromSavedState = savedInstanceState != null
         val t0 = SystemClock.elapsedRealtime()
         super.onCreate(savedInstanceState)
