@@ -1,4 +1,4 @@
-package com.tutu.myblbl.feature.player.danmaku
+package com.tutu.myblbl.feature.player.danmaku.common
 
 import android.graphics.Color
 import kotlin.math.roundToInt

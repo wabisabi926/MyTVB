@@ -1,6 +1,6 @@
 package com.tutu.myblbl.feature.player.danmaku
 
-import com.kuaishou.akdanmaku.data.DanmakuVipGradientStyle
+import com.tutu.myblbl.feature.player.danmaku.common.DanmakuVipGradientStyle
 
 /**
  * 弹幕引擎内部数据模型（迁移自 blbl.cat3399.core.model.Danmaku）。

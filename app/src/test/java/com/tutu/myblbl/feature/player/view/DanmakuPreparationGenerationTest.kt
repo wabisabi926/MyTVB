@@ -14,6 +14,8 @@ import com.tutu.myblbl.feature.player.shouldResetPublishedDanmakuState
 import com.tutu.myblbl.feature.player.danmaku.mergeSortedDanmakuModels
 import com.tutu.myblbl.feature.player.danmaku.canAppendPreparedDanmakuIncrementally
 import com.tutu.myblbl.feature.player.danmaku.canInjectPreparedDanmaku
+import com.tutu.myblbl.feature.player.danmaku.common.DanmakuDuplicateMergePolicy
+import com.tutu.myblbl.feature.player.danmaku.common.nextDanmakuPreparationGeneration
 import com.tutu.myblbl.model.dm.DmModel
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse

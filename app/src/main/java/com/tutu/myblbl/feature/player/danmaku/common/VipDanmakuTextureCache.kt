@@ -1,10 +1,9 @@
-package com.tutu.myblbl.feature.player.view
+package com.tutu.myblbl.feature.player.danmaku.common
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.util.LruCache
-import com.kuaishou.akdanmaku.data.DanmakuVipGradientStyle
 import com.tutu.myblbl.network.NetworkManager
 import com.tutu.myblbl.core.common.log.AppLog
 import kotlinx.coroutines.CoroutineScope
